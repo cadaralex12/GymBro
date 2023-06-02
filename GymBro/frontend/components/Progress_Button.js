@@ -15,7 +15,7 @@ export default Test_Button = ({navigation, button_name, username, user_id}) => {
         <TouchableOpacity
             style={styles.arrow_button}
             onPress={() =>
-                navigation.navigate("Weight_History", {username:username})
+                navigation.navigate("Weight_History", {username:username, user_id:user_id})
                     }
         >
         <Text style={styles.arrow_text}>➜</Text>

@@ -1,28 +1,29 @@
 import { StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
-
-export default Test_Button = ({navigation, button_name, username}) => {
+    
+    
+export default Weight_Button = ({ navigation, button_name, username, user_id }) => {
     return (
-        <View style={styles.container}>
-        <TouchableOpacity
-            style={styles.weight_button}
-            onPress={() =>
-                navigation.navigate('Weight')
-                    }
-        >
-        <Text style={styles.text_button}>{button_name}</Text>
-        </TouchableOpacity>
         
+      <View style={styles.container}>
         <TouchableOpacity
-            style={styles.arrow_button}
-            onPress={() =>
-                navigation.navigate("Login")
-                    }
+          style={styles.weight_button}
+          onPress={() =>
+            navigation.navigate('Weight', { username: username, user_id: user_id })
+          }
         >
-        <Text style={styles.arrow_text}>       Log Out ➜ </Text>
+          <Text style={styles.text_button}>{button_name}</Text>
         </TouchableOpacity>
-        </View>
-    )
-}
+  
+        <TouchableOpacity
+          style={styles.arrow_button}
+          onPress={() => navigation.navigate('Login')}
+        >
+          <Text style={styles.arrow_text}>       Log Out ➜</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+  
 
 const styles = StyleSheet.create({
     container: {

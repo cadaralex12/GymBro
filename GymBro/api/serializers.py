@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import MyUser, Exercise
+from .models import MyUser, Exercise, WeightEntry
 from django.contrib.auth.hashers import make_password
 
 class UserSerializer(serializers.ModelSerializer):
@@ -20,3 +20,13 @@ class ExerciseSerializers(serializers.ModelSerializer):
     class Meta:
         model = Exercise
         fields = ['id', 'exercise_name', 'weight', 'sets', 'reps', 'id_for_user']
+
+class PasswordRecoverySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MyUser
+        fields = ['email']
+
+class WeightEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WeightEntry
+        fields = ['id', 'user_id', 'weight', 'date_added']

@@ -6,7 +6,7 @@ export default Forgot_Button = ({navigation, button_name}) => {
         <TouchableOpacity
             style={styles.forgotButton}
             onPress={() =>
-                    Alert.alert("Gandeste-te mai bine, boss")
+                    navigation.navigate("Recover_Password")
                     }
         >
         <Text style={styles.testwst}>{button_name}</Text>

@@ -10,6 +10,12 @@ const Exercise = ({navigation, route}) => {
   const [number2, onChangeNumber2] = React.useState(null);
   const [number3, onChangeNumber3] = React.useState(null);
   const [number4, onChangeNumber4] = React.useState(null);
+  const { username, user_id, exerciseName, muscle } = route.params;
+
+  React.useEffect(() => {
+    onChangeNumber1(route.params.exerciseName);
+  }, []);
+
 
   const InsertExercise = () => {
       fetch(`${httpsUrl}/exercise/`,{
@@ -18,16 +24,21 @@ const Exercise = ({navigation, route}) => {
           'Content-Type':'application/json'
         },
 
-        body: JSON.stringify({exercise_name:number1, weight:number4, sets:number3, reps:number2, id_for_user:route.params.user_id})
+        body: JSON.stringify({exercise_name:number1, weight:number4, sets:number3, reps:number2, id_for_user:user_id})
       })
       .then(resp => {
       if (resp.ok)
       {
         console.log(route.params.user_id)
-          navigation.navigate('Record_Workout', {username:route.params.username, user_id:route.params.user_id})
+          navigation.navigate('Record_Workout', {username:username, user_id:user_id})
       }
       else
       {
+          console.log(user_id)
+          console.log(username)
+          //console.log(exerciseName)
+          //console.log(muscle)
+
           Alert.alert("Incorect exercise template")
       }
     })
@@ -37,7 +48,7 @@ const Exercise = ({navigation, route}) => {
     return (
       <View style={styles.container}>
         <Text style={styles.title_text}>
-            {route.params.name} <Text style={styles.text2}>Exercise
+            {muscle} <Text style={styles.text2}>Exercise
         </Text>
         </Text>
         <TextInput
@@ -45,14 +56,14 @@ const Exercise = ({navigation, route}) => {
           style={styles.input}
           onChangeText={onChangeNumber1}
           value={number1}
-          placeholder="Exercise Name"
+          defaultValue={exerciseName}
         />
         <TextInput
           maxLength={4}
           style={styles.input}
           onChangeText={onChangeNumber4}
           value={number4}
-          placeholder="Weight"
+          placeholder="Weight (kg)"
           keyboardType="numeric"
         />
         <View style={styles.view_style}>
@@ -134,6 +145,7 @@ const Exercise = ({navigation, route}) => {
         fontSize: 30
     },
     input: {
+      fontSize: 18,
       left: 10,
       height: 40,
       margin: 12,
@@ -144,6 +156,8 @@ const Exercise = ({navigation, route}) => {
       backgroundColor:"#ffffff"
     },
     sets_input: {
+      textAlign: 'center',
+      fontSize: 30,
       height: 100,
       width:100,
       margin: 12,
@@ -154,6 +168,8 @@ const Exercise = ({navigation, route}) => {
       backgroundColor:"#ffffff"
     },
     reps_input: {
+      textAlign: 'center',
+      fontSize: 30,
       height: 100,
       width:100,
       margin: 12,

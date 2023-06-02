@@ -1,9 +1,10 @@
 import React , {useEffect, useState} from 'react';
 import { ImageBackground, Image, StyleSheet, View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import Account_Button from './Account_Button';
-import Forgot_Pass from './Forgot_Pass';
 import Forgot_Button from './Forgot_Pass';
 import { httpsUrl } from '../constants/HttpUrl';
+import { LoginButton, AccessToken } from 'react-native-fbsdk';
+
 
 
 export default login_template_Button = ({navigation, Button_name}) => {
@@ -16,6 +17,26 @@ export default login_template_Button = ({navigation, Button_name}) => {
     username: "",
     password: "",
 });
+
+sendAccessTokenToBackend = accessToken => {
+  fetch(`${httpsUrl}/users/login/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ accessToken }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response
+      console.log('Response from backend:', data);
+      navigation.navigate('Record_Workout', {username:data.username, user_id:data.id})
+    })
+    .catch(error => {
+      console.log('Error sending fb access token to backend:', error);
+    });
+};
+
 
   function LoginUser() {
     fetch(`${httpsUrl}/users/login/`,{
@@ -76,9 +97,30 @@ export default login_template_Button = ({navigation, Button_name}) => {
         </TouchableOpacity>
         
         </View>
-        <Image source={require('.././images/facebook.png') } style={styles.logo2}/>
+        <LoginButton
+          onLoginFinished={(error, result) => {
+          if (error) {
+            // Handle error during login
+            console.log('Facebook login error:', error);
+          } else if (result.isCancelled) {
+            // Handle login cancellation
+            console.log('Facebook login cancelled');
+          } else {
+            // Login successful
+            AccessToken.getCurrentAccessToken().then(data => {
+              const accessToken = data.accessToken.toString();
+              // Send the accessToken to your Django backend
+              this.sendAccessTokenToBackend(accessToken);
+            });
+          }
+        }}
+        onLogoutFinished={() => {
+          // Handle logout event
+          console.log('Facebook logout');
+        }}
+      />
         <Image source={require('.././images/google.png') } style={styles.logo3}/>
-        <Forgot_Button button_name={'Forgot Password?'}></Forgot_Button>
+        <Forgot_Button button_name={'Forgot Password?'} navigation={navigation}></Forgot_Button>
         <Account_Button button_name={'Don`t have an account?'} navigation={navigation}>
         </Account_Button>
       </ImageBackground>

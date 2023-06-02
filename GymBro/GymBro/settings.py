@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-4)r1fj+9ek%8p)3j-+c5)4e^66e#qofy3r)u%w%z*)(pld9-m^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.111', '192.168.0.101']
+ALLOWED_HOSTS = ['192.168.0.111', '192.168.0.101', '84.239.14.140','127.0.0.1', '79.113.68.125', '192.168.0.107', '192.168.82.34', '192.168.1.124', '192.168.1.200', '192.168.0.106']
 
 
 # Application definition
@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     "api.apps.ApiConfig",
     "rest_framework",
     "frontend.apps.FrontendConfig",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.facebook",
+    "social_django",
 ]
 
 MIDDLEWARE = [
@@ -118,3 +123,24 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SOCIAL_PROVIDERS = {
+    'facebook': {
+        'APP': {
+            'client_id': '265707395858286',
+            'secret': '7f9c5f11ad11bbf2ca9268351d6962a4',
+            'key': '',
+            'default_scope': ['email'],
+            'scope': ['email'],
+            'auth_params': {'auth_type': 'reauthenticate'}
+        }
+    }
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.fastmail.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'gymbrobot@fastmail.com'
+EMAIL_HOST_PASSWORD = 'gjgbkpsrml3vyl8q'
+

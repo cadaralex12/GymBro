@@ -5,7 +5,7 @@ const Pictures_rand = ({navigation, imageleft, imageright, leftname, rightname, 
         <View style={styles.container}>
         <TouchableOpacity
             onPress={() =>
-                navigation.navigate('Exercise', { name: leftname, username:username, user_id:user_id })
+                navigation.navigate('ExerciseListPage', { name: leftname, username:username, user_id:user_id })
                     }
         >
             <Image
@@ -15,7 +15,7 @@ const Pictures_rand = ({navigation, imageleft, imageright, leftname, rightname, 
         </TouchableOpacity>
         <TouchableOpacity
             onPress={() =>
-                navigation.navigate('Exercise', { name: rightname, username:username, user_id:user_id })
+                navigation.navigate('ExerciseListPage', { name: rightname, username:username, user_id:user_id })
                     }
         >
             <Image

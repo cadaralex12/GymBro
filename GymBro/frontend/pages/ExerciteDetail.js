@@ -36,7 +36,7 @@ function ExerciseDetails(props) {
                 Exercise Name: <Text style={styles.innerText}>{data.exercise_name} </Text> 
             </Text>
             <Text style = {styles.text}>
-                Weight: <Text style={styles.innerText}>{data.weight} </Text> 
+                Weight: <Text style={styles.innerText}>{data.weight} kg</Text> 
             </Text>
             <Text style = {styles.text}>
                 Number of Sets: <Text style={styles.innerText}>{data.sets} </Text> 
@@ -52,16 +52,16 @@ function ExerciseDetails(props) {
                 // icon = "update"
                 mode = "contained"
                 onPress = {() => props.navigation.navigate("Update", {data:data})} >
-            Edit
+            EDIT
             </Button>
 
             <Button
                 buttonColor='yellow'
                 textColor='black'
-                // icon = "delete"
+                //icon = "delete"
                 mode = "contained"
                 onPress = {() => deleteData()} >
-            Delete
+            DELETE
             </Button>
             </View>
         </View>

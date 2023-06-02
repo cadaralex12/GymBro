@@ -16,11 +16,11 @@ const Choose_Workout = ({navigation, route}) => {
         <Text style={styles.text}>
             Choose your Workout
         </Text>
-        <Pictures_rand navigation={navigation} imageleft={biceps_image} imageright={abs_image} username={route.params.username} user_id={route.params.user_id} leftname='Bicep' rightname='Abs'>
+        <Pictures_rand navigation={navigation} imageleft={biceps_image} imageright={abs_image} username={route.params.username} user_id={route.params.user_id} leftname='Biceps' rightname='Abdominals'>
         </Pictures_rand>
-        <Pictures_rand navigation={navigation} imageleft={shoulder_image} imageright={legs_image} username={route.params.username} user_id={route.params.user_id} leftname='Shoulder' rightname='Leg'>
+        <Pictures_rand navigation={navigation} imageleft={shoulder_image} imageright={legs_image} username={route.params.username} user_id={route.params.user_id} leftname='Shoulders' rightname='Quadriceps'>
         </Pictures_rand>
-        <Pictures_rand navigation={navigation} imageleft={triceps_image} imageright={back_image} username={route.params.username} user_id={route.params.user_id} leftname='Tricep' rightname='Back'>
+        <Pictures_rand navigation={navigation} imageleft={triceps_image} imageright={back_image} username={route.params.username} user_id={route.params.user_id} leftname='Triceps' rightname='Lats'>
         </Pictures_rand>
         <Pictures_rand navigation={navigation} imageleft={chest_image} imageright={custom_image} username={route.params.username} user_id={route.params.user_id} leftname='Chest' rightname='Custom'>
         </Pictures_rand>

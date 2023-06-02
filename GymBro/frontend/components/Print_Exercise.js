@@ -39,11 +39,9 @@ function Print_Exercise({navigation, user_id}) {
 
     return (
         <SafeAreaView style={styles.container}>
-          <Text style={styles.baseText}>Gym
-            <Text style={styles.innerText}>Bro </Text>
+          <Text style={styles.baseText}>  Your 
+            <Text style={styles.innerText}> Exercises </Text>
             </Text>
-        <Text style={styles.text}>Your  
-        <Text style={styles.innerText}> Exercises:</Text></Text>
         <FlatList 
           data = {data}
           renderItem = {({item}) => {
@@ -69,7 +67,7 @@ function Print_Exercise({navigation, user_id}) {
       marginTop: 5,
     },
     cardstyle: {
-      top: 20,
+      top: 10,
       backgroundColor: '#ffff3f',
       padding: 12,
       marginVertical: 10,
@@ -78,7 +76,7 @@ function Print_Exercise({navigation, user_id}) {
       
     },
     baseText: {
-      top: 10,
+      
       color: 'white',
       fontWeight: 'bold',
       fontSize:24,
@@ -88,7 +86,7 @@ function Print_Exercise({navigation, user_id}) {
       color: 'yellow'
     },
   text: {
-      top: 20,
+      top: 5,
       color: 'white',
       fontWeight: 'bold',
       fontSize:24,
