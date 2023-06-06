@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
 
@@ -8,6 +9,8 @@ class Exercise(models.Model):
     sets = models.IntegerField(null=False, default=1)
     reps = models.IntegerField(null=False, default=1)
     id_for_user = models.IntegerField(null=False, default=1)
+    date = models.DateField(null=False, default=date.today)
+
 
 class WeightEntry(models.Model):
     user_id = models.IntegerField(null=False, default=1)

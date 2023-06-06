@@ -14,7 +14,7 @@ const Choose_Workout = ({navigation, route}) => {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-            Choose your Workout
+             Choose your <Text style={styles.text2}>Workout</Text>
         </Text>
         <Pictures_rand navigation={navigation} imageleft={biceps_image} imageright={abs_image} username={route.params.username} user_id={route.params.user_id} leftname='Biceps' rightname='Abdominals'>
         </Pictures_rand>
@@ -35,11 +35,15 @@ const Choose_Workout = ({navigation, route}) => {
       paddingHorizontal: 5
     },
     text:{
-        left: 40,
+        fontStyle: 'bold',
+        left: 50,
         fontSize:30,
         color:"white",
         justifyContent: "center",
     },
+    text2:{
+      color:"yellow",
+  },
   });
 
   export default Choose_Workout;

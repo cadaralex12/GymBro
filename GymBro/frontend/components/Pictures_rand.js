@@ -14,10 +14,17 @@ const Pictures_rand = ({navigation, imageleft, imageright, leftname, rightname, 
             />
         </TouchableOpacity>
         <TouchableOpacity
-            onPress={() =>
-                navigation.navigate('ExerciseListPage', { name: rightname, username:username, user_id:user_id })
+            onPress={() =>{
+                if(rightname === 'Custom'){
+                    navigation.navigate('SearchEx', { name: rightname, username:username, user_id:user_id })
+
+                }
+                else{
+                    navigation.navigate('ExerciseListPage', { name: rightname, username:username, user_id:user_id })
+                }
+                
                     }
-        >
+        }>
             <Image
                 source = {imageright}
                 style={styles.pic_right}

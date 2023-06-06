@@ -19,7 +19,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
 class ExerciseSerializers(serializers.ModelSerializer):
     class Meta:
         model = Exercise
-        fields = ['id', 'exercise_name', 'weight', 'sets', 'reps', 'id_for_user']
+        fields = ['id', 'exercise_name', 'weight', 'sets', 'reps', 'id_for_user', 'date']
 
 class PasswordRecoverySerializer(serializers.ModelSerializer):
     class Meta:

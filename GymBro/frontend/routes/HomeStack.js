@@ -17,6 +17,7 @@ import ExerciseDetail from '../pages/ExerciteDetail';
 import ExerciseUpdate from '../pages/ExerciseUpdate';
 import Recover_Password from '../pages/Recover_Password'
 import ExerciseListPage from '../pages/ExerciseListPage';
+import SearchExerciseScreen from '../pages/SearchEx';
 
 
 
@@ -45,7 +46,7 @@ export default MyStack = () => {
         <Stack.Screen name="Update" component={ExerciseUpdate} options={{headerShown: false}}/>
         <Stack.Screen name="Recover_Password" component={Recover_Password} options={{headerShown: false}}/>
         <Stack.Screen name="ExerciseListPage" component={ExerciseListPage} options={{headerShown: false}}/>
-
+        <Stack.Screen name="SearchEx" component={SearchExerciseScreen} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -107,15 +107,14 @@ def find_user(request):
 def print_exercise_as_id(request):
     if request.method == 'POST':
         serz_data = ExerciseSerializers(data=request.data)
-        # print(serz_data)
+        print(serz_data.is_valid())
+        print(serz_data.errors)
         if (serz_data.is_valid() ):
             my_user_id = serz_data.data.get('id_for_user')
-            # print(my_user_id)
-            if my_user_id is None:
-                my_user_id = 4
+            print(my_user_id)
             exs = Exercise.objects.all().filter(id_for_user=my_user_id)
-            # print(exs)
-            exs_dto = ExerciseSerializers(exs, many=True)
+            print(exs)
+            exs_dto = ExerciseSerializers(exs, many=True, context={'request': request})
             return Response(exs_dto.data, status=status.HTTP_202_ACCEPTED)
     return Response('BAD REQUEST', status=status.HTTP_400_BAD_REQUEST)
 

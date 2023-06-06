@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import Template_Button from '../components/Template_Button';
 import Weight_Button from '../components/Weight_Button';
 
-const image = require('.././images/Weight_History.jpg') ;
+const image = require('.././images/Weight_History.png') ;
 
 const Weight_History = ({navigation, route}) => {
     return (

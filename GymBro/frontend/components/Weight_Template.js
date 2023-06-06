@@ -23,9 +23,6 @@ export default weight_template = ({ img, navigation, username, user_id }) => {
         console.log('Error:', error);
       });
   }, []);
-  
-  
-  
 
   const addWeight = () => {
     fetch(`${httpsUrl}/weight/`, {
