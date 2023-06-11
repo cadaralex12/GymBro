@@ -97,29 +97,7 @@ sendAccessTokenToBackend = accessToken => {
         </TouchableOpacity>
         
         </View>
-        <LoginButton
-          onLoginFinished={(error, result) => {
-          if (error) {
-            // Handle error during login
-            console.log('Facebook login error:', error);
-          } else if (result.isCancelled) {
-            // Handle login cancellation
-            console.log('Facebook login cancelled');
-          } else {
-            // Login successful
-            AccessToken.getCurrentAccessToken().then(data => {
-              const accessToken = data.accessToken.toString();
-              // Send the accessToken to your Django backend
-              this.sendAccessTokenToBackend(accessToken);
-            });
-          }
-        }}
-        onLogoutFinished={() => {
-          // Handle logout event
-          console.log('Facebook logout');
-        }}
-      />
-        <Image source={require('.././images/google.png') } style={styles.logo3}/>
+
         <Forgot_Button button_name={'Forgot Password?'} navigation={navigation}></Forgot_Button>
         <Account_Button button_name={'Don`t have an account?'} navigation={navigation}>
         </Account_Button>

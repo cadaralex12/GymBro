@@ -22,6 +22,8 @@ export default template_Button = ({navigation, img, Button_type, Button_name, us
 
 const styles = StyleSheet.create({
   menu: {
+    top: 0,
+    position: 'absolute',
     width: '100%',
     height: 48,
     backgroundColor: 'rgba(52, 52, 0, 0)',
