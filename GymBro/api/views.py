@@ -15,6 +15,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.db.models import Avg, Max, Min
 import datetime as dt
 import random
 import string
@@ -100,7 +102,28 @@ def find_user(request):
 
     return Response(user_dto.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@csrf_exempt
+def exercise_progress(request, exercise_name):
+    user_id = request.GET.get('user_id')
+    exercises = Exercise.objects.filter(exercise_name=exercise_name, id_for_user=user_id)
+    weights = [exercise.weight for exercise in exercises]
 
+    if len(weights) > 0:
+        max_weight = max(weights)
+        min_weight = min(weights)
+        avg_weight = sum(weights) / len(weights)
+    else:
+        max_weight = None
+        min_weight = None
+        avg_weight = None
+
+    progress = {
+        'maxWeight': max_weight,
+        'minWeight': min_weight,
+        'avgWeight': avg_weight,
+    }
+
+    return JsonResponse(progress)
 
 @api_view(['POST', 'GET'])
 @permission_classes([AllowAny])

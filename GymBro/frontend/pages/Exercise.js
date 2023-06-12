@@ -58,9 +58,9 @@ const Exercise = ({ navigation, route }) => {
         } else {
           console.log(user_id);
           console.log(username);
-          //console.log(exerciseName)
-          //console.log(muscle)
-
+          console.log(exerciseName)
+          console.log(muscle)
+            
           Alert.alert('Incorrect exercise template');
         }
       });

@@ -24,6 +24,7 @@ export default weight_template = ({ img, navigation, username, user_id }) => {
       });
   }, []);
 
+
   const addWeight = () => {
     fetch(`${httpsUrl}/weight/`, {
       method: 'POST',
@@ -74,7 +75,7 @@ export default weight_template = ({ img, navigation, username, user_id }) => {
     dependentAxis
     label="Weight"
     style={{ axisLabel: { padding: 30 }, axis:{stroke: 'white'}, tickLabels: { fontSize: 10, fill:'white' } }}
-    domain={{ y: [40, 120] }} 
+    domain={{ y: [50, 110] }} 
   />
   <VictoryAxis
   label="Date"
@@ -87,11 +88,11 @@ export default weight_template = ({ img, navigation, username, user_id }) => {
     x="date"
     y="weight"
     style={{
-      data: { stroke: 'yellow' }, // Change the color to red
+      data: { stroke: 'yellow' }, 
     }}
   />
 </VictoryChart>
-
+<Text style={styles.messageText} > Remember, progress doesn't follow a straight line. Embrace the ups and downs, as they are part of the journey towards your goal .</Text>
       </ImageBackground>
     </View>
   );
@@ -103,6 +104,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 24,
+    textAlign: 'center',
+  },
+  messageText: {
+    top: 20,
+    color: 'grey',
+    fontSize: 12,
     textAlign: 'center',
   },
   innerText: {

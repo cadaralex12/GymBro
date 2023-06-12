@@ -1,10 +1,9 @@
 from django.db import models
 from datetime import date
 
-# Create your models here.
 
 class Exercise(models.Model):
-    exercise_name = models.CharField(max_length=100, default='', unique=True)
+    exercise_name = models.CharField(max_length=100, default='')
     weight = models.IntegerField(null=False, default=1)
     sets = models.IntegerField(null=False, default=1)
     reps = models.IntegerField(null=False, default=1)
@@ -14,7 +13,7 @@ class Exercise(models.Model):
 
 class WeightEntry(models.Model):
     user_id = models.IntegerField(null=False, default=1)
-    weight = models.IntegerField(null=False, default=1)
+    weight = models.FloatField(null=False, default=1)
     date_added = models.DateField(null=False)
 
 class MyUser(models.Model):

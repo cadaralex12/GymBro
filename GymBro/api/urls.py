@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserList, ExerciseList, ExerciseDetail, find_user, print_exercise_as_id, UserDetail, password_recovery_view, show_exercises_view, create_weight_entry, get_weight_data
+from .views import UserList, ExerciseList, ExerciseDetail, find_user, print_exercise_as_id, UserDetail, password_recovery_view, show_exercises_view, create_weight_entry, get_weight_data, exercise_progress
 
 urlpatterns = [
     path("users/", UserList.as_view()),
@@ -12,5 +12,5 @@ urlpatterns = [
     path('exercise_list/<str:muscle>/', show_exercises_view, name='exercises'),
     path('weight/', create_weight_entry),
     path('weight-data/', get_weight_data),
-
+    path('exercise/progress/<str:exercise_name>/', exercise_progress, name='exercise_progress'),
 ]

@@ -37,30 +37,33 @@ function Print_Exercise({ navigation, user_id }) {
   };
 
   const handleEditWorkoutName = (workout) => {
-  const date = workout.workoutName.split('Your Workout on ')[1];
-  setEditedWorkout({ ...workout, date });
-  setNewWorkoutName('');
-  setEditModalVisible(true);
-};
+    if (workout && workout.date) {
+      const date = workout.date.split('Your Workout on ')[1];
+      setEditedWorkout({ ...workout, date });
+      setNewWorkoutName('');
+      setEditModalVisible(true);
+    }
+  };
 
-const handleSaveWorkoutName = () => {
-  setEditModalVisible(false);
-  setData((prevData) => {
-    const updatedData = { ...prevData };
-    const workouts = updatedData[editedWorkout.date];
-    workouts.forEach((workout) => {
-      if (workout === editedWorkout) {
-        const currentDate = workout.workoutName.split('Your Workout on ')[1];
-        workout.workoutName = `Your Workout on ${newWorkoutName || currentDate}`;
+  const handleSaveWorkoutName = () => {
+    setEditModalVisible(false);
+    setData((prevData) => {
+      const updatedData = { ...prevData };
+      const workouts = updatedData[editedWorkout.date];
+      if (workouts) {
+        workouts.forEach((workout) => {
+          if (workout === editedWorkout) {
+            const currentDate = workout.workoutName.split('Your Workout on ')[1];
+            workout.workoutName = `Your Workout on ${newWorkoutName || currentDate}`;
+          }
+        });
       }
+      return updatedData;
     });
-    return updatedData;
-  });
-  setEditedWorkout(null);
-  setNewWorkoutName('');
-};
-
-
+    setEditedWorkout(null);
+    setNewWorkoutName('');
+  };
+  
 
 
   const renderData = ({ item }) => {
