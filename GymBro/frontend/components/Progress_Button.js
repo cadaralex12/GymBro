@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         borderColor: '#ffff00'
       },
   gridContainer: {
-    top: 600,
+    top: 700,
+    left:-12,
     width:420,
     position: 'absolute',
     flexDirection: 'row',

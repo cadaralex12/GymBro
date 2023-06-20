@@ -28,7 +28,6 @@ sendAccessTokenToBackend = accessToken => {
   })
     .then(response => response.json())
     .then(data => {
-      // Handle the response
       console.log('Response from backend:', data);
       navigation.navigate('Record_Workout', {username:data.username, user_id:data.id})
     })
