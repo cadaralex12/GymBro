@@ -73,9 +73,6 @@ function Print_Exercise({ navigation, user_id }) {
       <Card style={styles.cardstyle}>
         <View style={styles.header}>
           <Text style={styles.workoutDate}>{`${editedWorkout ? editedWorkout.workoutName : 'Your Workout'} on ${date}`}</Text>
-          <TouchableOpacity onPress={() => handleEditWorkoutName({ date, workoutName: `Your Workout on ${date}` })}>
-            <Text style={styles.editButton}>Edit</Text>
-          </TouchableOpacity>
         </View>
         {exercises.map((exercise) => (
           <Text
@@ -97,7 +94,7 @@ function Print_Exercise({ navigation, user_id }) {
         <Text style={styles.innerText}> Exercises </Text>
       </Text>
       <FlatList
-        data={data ? Object.entries(data) : []}
+        data={data ? Object.entries(data).reverse() : []}
         renderItem={renderData}
         keyExtractor={(item) => item[0]}
         ListEmptyComponent={<Text style={styles.item}>No exercises found</Text>}

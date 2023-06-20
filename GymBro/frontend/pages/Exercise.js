@@ -208,6 +208,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   sets_input: {
+    left: -10,
     textAlign: 'center',
     fontSize: 30,
     height: 100,
@@ -220,6 +221,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   reps_input: {
+    left: -10,
     textAlign: 'center',
     fontSize: 30,
     height: 100,
