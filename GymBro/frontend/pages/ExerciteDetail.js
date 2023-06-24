@@ -78,15 +78,6 @@ function ExerciseDetails(props) {
       
       <Image source={require('.././images/logofinal.png')} style={styles.logo} />
       <View style={styles.btnStyle}>
-        <Button
-          buttonColor="yellow"
-          textColor="black"
-          mode="contained"
-          onPress={() => props.navigation.navigate('Update', { data: data })}
-        >
-          EDIT
-        </Button>
-
         <Button buttonColor="yellow" textColor="black" mode="contained" onPress={() => deleteData()}>
           DELETE
         </Button>
@@ -104,7 +95,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   btnStyle: {
-    top: '80%',
+    top: '60%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     margin: 10,
@@ -137,7 +128,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     top: 200,
-    left: 160,
+    left: 150,
     justifyContent: 'center',
     width: 100,
     height: 100,

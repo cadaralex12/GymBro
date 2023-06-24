@@ -24,7 +24,7 @@ export default register_template_Button = ({navigation, img, button_name}) => {
       }
       else
       {
-          Alert.alert("Error")
+          Alert.alert("Error, Invalid Credentials")
       }
   })
 }
