@@ -158,10 +158,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 10,
+    color: 'black',
   },
   workoutDate: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'black',
   },
   editButton: {
     fontSize: 16,

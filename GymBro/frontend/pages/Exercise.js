@@ -97,6 +97,7 @@ const Exercise = ({ navigation, route }) => {
         onChangeText={onChangeNumber4}
         value={number4}
         placeholder="Weight (kg)"
+        placeholderTextColor= "black"
         keyboardType="numeric"
       />
       <View style={styles.view_style}>
@@ -106,6 +107,7 @@ const Exercise = ({ navigation, route }) => {
           onChangeText={onChangeNumber2}
           value={number2}
           placeholder="Sets"
+          placeholderTextColor= "black"
           keyboardType="numeric"
         />
         <Image source={logobun_image} style={styles.small_logo} />
@@ -115,6 +117,7 @@ const Exercise = ({ navigation, route }) => {
           onChangeText={onChangeNumber3}
           value={number3}
           placeholder="Reps"
+          placeholderTextColor= "black"
           keyboardType="numeric"
         />
       </View>
